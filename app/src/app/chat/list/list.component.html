@@ -1,0 +1,9 @@
+<h1>Your Chats</h1>
+
+<ol>
+    <li *ngFor="let chat of chats">
+        <a routerLink="/chats/{{chat._id}}">{{chat.name}}</a>
+    </li>
+</ol>
+
+ 

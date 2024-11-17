@@ -1,0 +1,11 @@
+<h1>Projects</h1>
+
+<button [routerLink]="'create'">Create a Project</button>
+
+<ol>
+    <li *ngFor="let project of projects">
+        <span>{{ project.name }}</span>
+        <button (click)="show(project._id)">Show</button>
+        <button (click)="delete(project._id)">Delete</button>
+    </li>
+</ol>

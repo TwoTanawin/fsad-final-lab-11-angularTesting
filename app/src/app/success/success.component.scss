@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    justify-content: end;
+    width: 15rem;
+    height: 5rem;
+    align-items: center;
+
+    .box {
+        background-color: red;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media(min-width: 720px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

@@ -1,0 +1,6 @@
+services:
+  student-mongodb:
+    image: mongo:latest
+    container_name: student-mongodb
+    ports:
+      - "4500:27017"

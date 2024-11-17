@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  # MongoDB Service
+  student-mongodb:
+    image: mongo:latest
+    container_name: student-mongodb
+    ports:
+      - "4500:27017"
+    networks:
+      - student-network
+
+  # Backend Service
+  student-backend:
+    build:
+      context: ./students-api/api
+      dockerfile: Dockerfile
+    container_name: student-backend
+    ports:
+      - "3001:3000"
+    depends_on:
+      - student-mongodb
+    networks:
+      - student-network
+    environment:
+      MONGO_URL: mongodb://student-mongodb:27017/students-db
+
+  # Frontend Service
+  student-frontend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: student-frontend
+    ports:
+      - "8087:80"
+    networks:
+      - student-network
+
+networks:
+  student-network:
+    driver: bridge
